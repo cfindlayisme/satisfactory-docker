@@ -6,5 +6,9 @@
 # Update/install server on startup
 /steam/steamcmd.sh +force_install_dir /satisfactory +login anonymous +app_update 1690800 -beta public validate +quit
 
+# Ensure permissions are adjusted for the server user
+# Config files live in /satisfactory/FactoryGame/Saved/Config/LinuxServer
+chown -R satisfactory:satisfactory /satisfactory
+
 # Start the server
-/satisfactory/FactoryServer.sh
+sudo -u satisfactory /satisfactory/FactoryServer.sh

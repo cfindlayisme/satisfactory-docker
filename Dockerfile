@@ -5,4 +5,8 @@ FROM gitea.findlayis.me/chuck/steamcmd:latest
 
 COPY run.sh /run.sh
 
-CMD ["/bin/bash"]
+RUN apt update && apt install -y sudo && \
+    useradd -m -d /satisfactory satisfactory && \
+    chown -R satisfactory:satisfactory /satisfactory
+
+CMD ["/run.sh"]
