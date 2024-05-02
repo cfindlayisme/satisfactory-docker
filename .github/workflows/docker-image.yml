@@ -47,8 +47,8 @@ jobs:
       
     - name: Push the Docker image
       run: docker push ${{ secrets.DOCKER_REPO }}:latest
-    # - name: Push the second Docker image
-    #   run: docker push ${{ secrets.DOCKER_REPO2 }}:latest
+    - name: Push the second Docker image
+      run: docker push ${{ secrets.DOCKER_REPO2 }}:latest
 
     - name: Notify IRC Success
       run: |
