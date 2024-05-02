@@ -7,6 +7,7 @@ COPY run.sh /run.sh
 
 RUN apt update && apt install -y sudo && \
     useradd -m -d /satisfactory satisfactory && \
-    chown -R satisfactory:satisfactory /satisfactory
+    chown -R satisfactory:satisfactory /satisfactory && \
+    mkdir -p /satisfactory/FactoryGame/Saved/Config/LinuxServer
 
 CMD ["/run.sh"]
