@@ -11,4 +11,4 @@
 chown -R satisfactory:satisfactory /satisfactory
 
 # Start the server
-sudo -u satisfactory /satisfactory/FactoryServer.sh
+sudo -u satisfactory /satisfactory/FactoryServer.sh -multihome
