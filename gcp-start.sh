@@ -22,6 +22,8 @@ gcloud auth activate-service-account --key-file=/gcs-key.json
 # Copy files from GCS to /root (so /satisfactory/FactoryGame/Saved/Config/LinuxServer is there) and save files
 gsutil -m cp -r gs://$GCS_BUCKET$GCS_BUCKET_PATH/LinuxServer /satisfactory/FactoryGame/Saved/Config/
 gsutil -m cp -r gs://$GCS_BUCKET$GCS_BUCKET_PATH/SaveGames /satisfactory/.config/Epic/FactoryGame/Saved/
+# Give permissions back to user
+chown -R satisfactory:satisfactory /satisfactory && \
 
 /run.sh
 

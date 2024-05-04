@@ -7,9 +7,9 @@ COPY run.sh /run.sh
 
 RUN apt update && apt install -y sudo && \
     useradd -m -d /satisfactory satisfactory && \
-    chown -R satisfactory:satisfactory /satisfactory && \
     mkdir -p /satisfactory/FactoryGame/Saved/Config/LinuxServer && \
-    mkdir -p /satisfactory/.config/Epic/FactoryGame/Saved/SaveGames
+    mkdir -p /satisfactory/.config/Epic/FactoryGame/Saved/SaveGames && \
+    chown -R satisfactory:satisfactory /satisfactory
 
 EXPOSE 15777/udp 15000/udp 7777/udp
 CMD ["/run.sh"]
