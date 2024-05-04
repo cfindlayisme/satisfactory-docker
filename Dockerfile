@@ -10,4 +10,5 @@ RUN apt update && apt install -y sudo && \
     chown -R satisfactory:satisfactory /satisfactory && \
     mkdir -p /satisfactory/FactoryGame/Saved/Config/LinuxServer
 
+EXPOSE 15777/udp 15000/udp 7777/udp
 CMD ["/run.sh"]

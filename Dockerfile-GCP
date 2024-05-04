@@ -23,4 +23,5 @@ RUN \
 
 COPY gcp-start.sh /
 
+EXPOSE 15777/udp 15000/udp 7777/udp
 CMD ["/gcp-start.sh"]
