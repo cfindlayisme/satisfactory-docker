@@ -5,11 +5,11 @@
 # Author: Chuck Findlay <chuck@findlayis.me>
 # License: LGPL v3.0
 
-echo "0 */1 * * * gcloud auth activate-service-account --key-file=/gcs-key.json && gsutil -m cp -r /satisfactory/FactoryGame/Saved/Config/LinuxServer gs://$GCS_BUCKET$GCS_BUCKET_PATH/" > /etc/cron.d/gcs-hourly-backup
+echo "0 */1 * * * gcloud auth activate-service-account --key-file=/gcs-key.json && gsutil -m cp -r /satisfactory/FactoryGame/Saved/Config/LinuxServer gs://$GCS_BUCKET$GCS_BUCKET_PATH/" > /etc/cron.d/gcs-hourly-backup-config
 chmod 0644 /etc/cron.d/gcs-hourly-backup-config
 crontab /etc/cron.d/gcs-hourly-backup-config
 
-echo "0 */1 * * * gcloud auth activate-service-account --key-file=/gcs-key.json && gsutil -m cp -r /satisfactory/.config/Epic/FactoryGame/Saved/SaveGames gs://$GCS_BUCKET$GCS_BUCKET_PATH/" > /etc/cron.d/gcs-hourly-backup
+echo "0 */1 * * * gcloud auth activate-service-account --key-file=/gcs-key.json && gsutil -m cp -r /satisfactory/.config/Epic/FactoryGame/Saved/SaveGames gs://$GCS_BUCKET$GCS_BUCKET_PATH/" > /etc/cron.d/gcs-hourly-backup-saves
 chmod 0644 /etc/cron.d/gcs-hourly-backup-saves
 crontab /etc/cron.d/gcs-hourly-backup-saves
 
