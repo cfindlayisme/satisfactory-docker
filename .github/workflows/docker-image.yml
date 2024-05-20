@@ -6,19 +6,7 @@ on:
 
 jobs:
 
-  # sonar:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - name: SonarCloud Scan
-  #     uses: sonarsource/sonarcloud-github-action@master
-  #     env:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
   build:
-#    needs: 
-
     runs-on: ubuntu-latest
 
     steps:
@@ -47,8 +35,10 @@ jobs:
       
     - name: Push the Docker image
       run: docker push ${{ secrets.DOCKER_REPO }}:latest
+      if: github.ref == 'refs/heads/main'
     - name: Push the second Docker image
       run: docker push ${{ secrets.DOCKER_REPO2 }}:latest
+      if: github.ref == 'refs/heads/main'
 
     - name: Notify IRC Success
       run: |
